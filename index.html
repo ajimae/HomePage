@@ -6,6 +6,7 @@
 <body>
   <div id="ctx"></div>
   <script>
+    // this data will be gotten from a fetch api request
     var images = [
       {
         image:
@@ -74,6 +75,12 @@
       },
     ];
     document.getElementById("ctx").innerHTML = (function () {
+      var isX;
+      if (window.screen.height > (800 * 2.719) || window.screen.width > (800 * 2.719)) {
+        isX = true;
+      } else {
+        isX = false;
+      }
       const { title, image } = images[Math.floor(Math.random() * images.length)];
       return `<div style="background:#f0f0f0;background-repeat:no-repeat;background-size:cover;background-position:center;background-image:url(${image});margin:0auto;height:100%;width:100%;font-size:12px;font-family:verdana;border-radius:5px;color:#444">
   <div
@@ -88,6 +95,7 @@
       font-size: 24px;
       color: #fff;
       font-weight: 400;
+      top: ${isX ? '1580px' : '1350px'};
       margin-left: ${20 * 2.719}px;
       padding-left: ${10 * 2.719}px;
       padding-right: ${10 * 2.719}px;
@@ -101,5 +109,4 @@
     })();
   </script>
 </body>
-
 </html>
