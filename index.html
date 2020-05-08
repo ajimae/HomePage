@@ -2,111 +2,164 @@
 
 <head></head>
 <title></title>
-
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 <body>
   <div id="ctx"></div>
   <script>
     // this data will be gotten from a fetch api request
+
+    /* This Source Code Form is subject to the terms of the Mozilla Public
+     * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+     * You can obtain one at https://mozilla.org/MPL/2.0/. 
+     * 
+     * Credit goes to all image authors and brave software inc.
+     * */
+
     var images = [
       {
-        image:
-          'https://cdn.th3rdwave.coffee/articles/rkvHXu_Il/rkvHXu_Il-1100-700.jpg',
-        title: 'Le Brûloir',
+        'name': 'ntp-fall-2019-1',
+        'source': 'anders-jilden.png',
+        'author': 'Anders Jildén',
+        'link': 'https://unsplash.com/@andersjilden?utm_source=unsplash&utm_medium=referral&utm_content=credit',
+        'originalUrl': 'https://unsplash.com/photos/uwbajDCODj4',
+        'license': 'https://unsplash.com/license'
       },
       {
-        image:
-          'https://cdn.th3rdwave.coffee/articles/rkTnGunIx/rkTnGunIx-1100-700.jpg',
-        title: 'Le Petit Brûloir',
+        'name': 'ntp-fall-2019-2',
+        'source': 'andreas-gucklhorn.png',
+        'author': 'Andreas Gücklhorn',
+        'link': 'https://unsplash.com/@draufsicht?utm_source=unsplash&utm_medium=referral&utm_content=credit',
+        'originalUrl': 'https://unsplash.com/photos/mawU2PoJWfU',
+        'license': 'https://unsplash.com/license'
       },
       {
-        image:
-          'https://cdn.th3rdwave.coffee/articles/HknxZ9awg/HknxZ9awg-1100-700.jpg',
-        title: 'Oui Mais Non',
+        'name': 'ntp-fall-2019-3',
+        'source': 'andy-mai.png',
+        'author': 'Andy Mai',
+        'link': 'https://unsplash.com/@veroz?utm_source=unsplash&utm_medium=referral&utm_content=credit',
+        'originalUrl': 'https://unsplash.com/photos/4knR_YzeUVc',
+        'license': 'https://unsplash.com/license'
       },
       {
-        image:
-          'https://cdn.th3rdwave.coffee/merchants/rJWPQ2mKx/rJWPQ2mKx-1100-700.jpg',
-        title: 'PERKO',
+        'name': 'ntp-fall-2019-5',
+        'source': 'anton-repponen.png',
+        'author': 'Anton Repponen',
+        'link': 'https://unsplash.com/@repponen?utm_source=unsplash&utm_medium=referral&utm_content=credit',
+        'originalUrl': 'https://unsplash.com/photos/sfgH9dXcMRw',
+        'license': 'https://unsplash.com/license'
       },
       {
-        image:
-          'https://cdn.th3rdwave.coffee/merchants/rJWPQ2mKx/rJWPQ2mKx-1100-700.jpg',
-        title: 'Perko',
+        'name': 'ntp-fall-2019-6',
+        'source': 'ben-karpinski.png',
+        'author': 'Ben Karpinski',
+        'link': 'http://bklandscapes.com',
+        'originalUrl': 'Contributor sent the hi-res version through email',
+        'license': 'used with permission'
       },
       {
-        image:
-          'https://cdn.th3rdwave.coffee/articles/B1XmNBmLe/B1XmNBmLe-1100-700.jpg',
-        title: 'Café Saint-Henri | Marché Jean-Talon',
+        'name': 'ntp-fall-2019-8',
+        'source': 'joe-gardner.png',
+        'author': 'Joe Gardner',
+        'link': 'https://unsplash.com/@josephgardnerphotography?utm_source=unsplash&utm_medium=referral&utm_content=credit',
+        'originalUrl': 'https://unsplash.com/photos/4xv3lqnanYc',
+        'license': 'used with permission'
       },
       {
-        image:
-          'https://cdn.th3rdwave.coffee/articles/rkvHXu_Il/rkvHXu_Il-1100-700.jpg',
-        title: 'Le Brûloir',
+        'name': 'ntp-fall-2019-10',
+        'source': 'matt-palmer.png',
+        'author': 'Matt Palmer',
+        'link': 'https://unsplash.com/@mattpalmer?utm_source=unsplash&utm_medium=referral&utm_content=credit',
+        'originalUrl': 'https://unsplash.com/photos/veMnvjmfoxw',
+        'license': 'used with permission'
       },
       {
-        image:
-          'https://cdn.th3rdwave.coffee/articles/rkTnGunIx/rkTnGunIx-1100-700.jpg',
-        title: 'Le Petit Brûloir',
+        'name': 'ntp-fall-2019-12',
+        'source': 'svalbard-jerol-soibam.png',
+        'author': 'Jerol Soibam',
+        'link': 'https://www.instagram.com/jerol_soibam',
+        'originalUrl': 'Contributor sent the hi-res version through email',
+        'license': 'used with permission'
       },
       {
-        image:
-          'https://cdn.th3rdwave.coffee/articles/HknxZ9awg/HknxZ9awg-1100-700.jpg',
-        title: 'Oui Mais Non',
+        'name': 'ntp-fall-2019-13',
+        'source': 'will-christiansen-glacier-peak.png',
+        'author': 'Will Christiansen',
+        'link': 'https://www.theskyfolk.com',
+        'originalUrl': 'Contributor sent the hi-res version through email',
+        'license': 'used with permission'
       },
       {
-        image:
-          'https://cdn.th3rdwave.coffee/merchants/rJWPQ2mKx/rJWPQ2mKx-1100-700.jpg',
-        title: 'PERKO',
-      },
-      {
-        image:
-          'https://cdn.th3rdwave.coffee/merchants/rJWPQ2mKx/rJWPQ2mKx-1100-700.jpg',
-        title: 'Perko',
-      },
-      {
-        image:
-          'https://i.pinimg.com/originals/f9/94/a9/f994a9b723ce7fb75f2764ae4a8dff02.jpg',
-        title: 'Google.com',
-      },
-      {
-        image:
-          'https://cdn.th3rdwave.coffee/articles/B1XmNBmLe/B1XmNBmLe-1100-700.jpg',
-        title: 'Café Saint-Henri | Marché Jean-Talon',
-      },
-    ];
-    document.getElementById("ctx").innerHTML = (function () {
-      var isX;
-      if (window.screen.height > (800 * 2.719) || window.screen.width > (800 * 2.719)) {
-        isX = true;
-      } else {
-        isX = false;
+        'name': 'ntp-fall-2019-14',
+        'source': 'will-christiansen-ice.png',
+        'author': 'Will Christiansen',
+        'link': 'https://www.theskyfolk.com',
+        'originalUrl': 'Contributor sent the hi-res version through email',
+        'license': 'used with permission'
       }
-      const { title, image } = images[Math.floor(Math.random() * images.length)];
-      return `<div style="background:#f0f0f0;background-repeat:no-repeat;background-size:cover;background-position:center;background-image:url(${image});margin:0auto;height:100%;width:100%;font-size:12px;font-family:verdana;border-radius:5px;color:#444">
-  <div
-    id="artist"
-    style="
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      position: absolute;
-      font-family: verdana;
-      font-size: 24px;
-      color: #fff;
-      font-weight: 400;
-      top: ${isX ? '1580px' : '1350px'};
-      margin-left: ${20 * 2.719}px;
-      padding-left: ${10 * 2.719}px;
-      padding-right: ${10 * 2.719}px;
-      height: ${22 * 2.719}px;
-      border-radius: ${5 * 2.719}px;
-      background-color: rgba(70, 70, 70, 0.70);
-  ">
-      Photo By ${title}
-    </div>
-  </div>`;
+    ];
+    var index = Math.floor(Math.random() * images.length);
+    var { author, link, source } = images[index];
+    var html = (function () {
+      var top = window.screen.height > 2175.2 ? 1600 : 1350;
+      if (top == undefined || top == null) return;
+      return `<div
+        style="
+          background:#f0f0f0;
+          background-repeat:no-repeat;
+          background-size:cover;
+          background-position:center;
+          background-image:url('./src/assets/background/${source}');
+          margin:0 auto;
+          width:100%;
+          height:100%;
+          font-size:12px;
+          font-family:verdana;border-radius:5px;
+          color:#444"
+      >
+      <div class="column">
+        <div class="first-row">
+          <div class="sub-col">
+            <div class="title"><span class="ads-tracker">5.6K</span></div>
+            <div class="desc">Ads & Trackers</div>
+            <div class="desc">Blocked</div>
+          </div>
+          <div class="sub-col">
+            <div class="title"><span class="upgrade">10</span></div>
+            <div class="desc">HTTPS</div>
+            <div class="desc">Upgrades</div>
+          </div>
+          <div class="sub-col">
+            <div class="title">4min</div>
+            <div class="desc">Est. Time</div>
+            <div class="desc">Saved</div>
+          </div>
+        </div>
+
+        <div class="second-row">
+          <a href="www.youtube.com"><div class="bookmarks">
+            <div class="youtube-icon"></div>
+            <div class="icon-label">Youtube</div>
+          </div></a>
+          <div class="bookmarks">
+            <div class="amazon-icon"></div>
+            <div class="icon-label">Amazon</div>
+          </div>
+          <div class="bookmarks">
+            <div class="wikipedia-icon"></div>
+            <div class="icon-label">Wikipedia</div>
+          </div>
+          <div class="bookmarks">
+            <div class="twitter-icon"></div>
+            <div class="icon-label">Twitter</div>
+          </div>
+        </div>
+      </div>
+      </div>`;
     })();
+    document.title = index;
+    document.getElementById("ctx").innerHTML = html;
   </script>
 </body>
+
 </html>
